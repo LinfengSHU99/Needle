@@ -118,7 +118,9 @@ def softmax_regression_epoch(X, y, theta, lr = 0.1, batch=100):
         # z[np.isnan(z)] = 0
         I_y = np.zeros_like(z)
         I_y[np.arange(0, I_y.shape[0]), y_batch] = 1
+        # print(x_batch.transpose((1, 0)))
         delta = x_batch.transpose((1, 0)) @ (z - I_y) / x_batch.shape[0]
+        # print(delta)
         theta -= lr * delta
 
     ### END YOUR CODE
